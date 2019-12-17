@@ -27,6 +27,7 @@ def iou(pr, gt, eps=1e-7, threshold=None, ignore_channels=None):
     Returns:
         float: IoU (Jaccard) score
     """
+    pr = pr[0] if type(pr) is tuple else pr
 
     pr = _threshold(pr, threshold=threshold)
     pr, gt = _take_channels(pr, gt, ignore_channels=ignore_channels)
@@ -50,6 +51,7 @@ def f_score(pr, gt, beta=1, eps=1e-7, threshold=None, ignore_channels=None):
     Returns:
         float: F score
     """
+    pr = pr[0] if type(pr) is tuple else pr
 
     pr = _threshold(pr, threshold=threshold)
     pr, gt = _take_channels(pr, gt, ignore_channels=ignore_channels)
@@ -74,6 +76,7 @@ def accuracy(pr, gt, threshold=0.5, ignore_channels=None):
     Returns:
         float: precision score
     """
+    pr = pr[0] if type(pr) is tuple else pr
     pr = _threshold(pr, threshold=threshold)
     pr, gt = _take_channels(pr, gt, ignore_channels=ignore_channels)
 
@@ -92,6 +95,7 @@ def precision(pr, gt, eps=1e-7, threshold=None, ignore_channels=None):
     Returns:
         float: precision score
     """
+    pr = pr[0] if type(pr) is tuple else pr
 
     pr = _threshold(pr, threshold=threshold)
     pr, gt = _take_channels(pr, gt, ignore_channels=ignore_channels)
@@ -114,6 +118,7 @@ def recall(pr, gt, eps=1e-7, threshold=None, ignore_channels=None):
     Returns:
         float: recall score
     """
+    pr = pr[0] if type(pr) is tuple else pr
 
     pr = _threshold(pr, threshold=threshold)
     pr, gt = _take_channels(pr, gt, ignore_channels=ignore_channels)
